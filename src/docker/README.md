@@ -36,7 +36,7 @@ so ./kafka-mesos.sh should be specified explicitly.
 
 Example:
 ```
-# sudo docker run -it -p 7000:7000 --add-host=master:192.168.3.5 `whoami`/kafka-mesos ./kafka-mesos.sh scheduler \
+# sudo docker run -it -p 7000:7000 --add-host=master:192.168.3.5 `whoami`/kafka-mesos \
 --master=master:5050 --zk=master:2181 --api=http://<accessible-ip>:7000 --storage=zk:/kafka-mesos
 ```
 Where accessible-ip - is the IP address of running host, accessible from mesos nodes.
@@ -65,7 +65,7 @@ Example:
     "cpus": 0.5,
     "mem": 256,
     "ports": [7000],
-    "cmd": "./kafka-mesos.sh scheduler --master=master:5050 --zk=master:2181 --api=http://master:7000 --storage=zk:/kafka-mesos",
+    "cmd": "--master=master:5050 --zk=master:2181 --api=http://master:7000 --storage=zk:/kafka-mesos",
     "instances": 1,
     "constraints": [["hostname", "LIKE", "master"]]
 }
